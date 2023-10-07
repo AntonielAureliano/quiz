@@ -18,6 +18,20 @@ function showQuestion() {
       }</span> ${q.options[i]}</div>`;
     }
     document.querySelector(".options").innerHTML = optionsHtml;
+
+    document.querySelectorAll(".options .option").forEach((item) => {
+      item.addEventListener("click", optionClickEvent);
+    });
   } else {
+  }
+}
+
+function optionClickEvent(e) {
+  let clickOption = parseInt(e.target.getAttribute("data-op"));
+
+  if (questions[currentQuestion].answer === clickOption) {
+    console.log("Acertou");
+  } else {
+    console.log("Errou");
   }
 }
